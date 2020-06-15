@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:vitdayz/Services_/AdmobService.dart';
 
 class GPAcalc extends StatefulWidget {
   final int n;
@@ -18,7 +16,6 @@ class GPAcalcstate extends State<GPAcalc> {
   var _selection;
   var _selectionCp;
   var list;
-  final ams = AdMobService();
 
   @override
   void initState() {
@@ -26,7 +23,6 @@ class GPAcalcstate extends State<GPAcalc> {
     _selection = new List<String>()..length = widget.n;
     _selectionCp = new List<String>()..length = widget.n;
     list = new List<int>.generate(widget.n, (i) => i);
-    Admob.initialize(ams.getAdMobAppId());
   }
 
   @override
@@ -207,10 +203,6 @@ class GPAcalcstate extends State<GPAcalc> {
             ),
           ),
           SizedBox(height: 15.0),
-                        AdmobBanner(
-                          adUnitId: ams.getBannerAdId(),
-                          adSize: AdmobBannerSize.FULL_BANNER,
-                        ),
         ]),
       ),
       floatingActionButton: new FloatingActionButton(
